@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 100%;
+    height: 90vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Roboto", sans-serif;
+}
+
+.content {
+    box-shadow: 0 0 12px #cccccc;
+    border-radius: 30px;
+    padding: 89px 125px 79px;
+}
+
+h1 {
+    text-align: center;
+    font-weight: 900;
+    font-size: 70px;
+    background: url('../fontimg/Rectangle5.png') center;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.green {
+    background: url('../fontimg/Rectangle.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.orange {
+    background: url('../fontimg/Rectangle2.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.red {
+    background: url('../fontimg/Rectangle3.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.purple {
+    background: url('../fontimg/Rectangle4.png');
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.select {
+    margin-top: 55px;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+input::-webkit-calendar-picker-indicator {
+    opacity: 0;
+    cursor: pointer;
+}
+
+.select, .input {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.relative {
+    position: relative;
+}
+
+.icons {
+    position: absolute;
+    top: 20px;
+    right: 6px;
+    z-index: -1;
+}
+
+.select select {
+    width: 100%;
+    background-color: transparent;
+}
+
+option {
+    color: #000;
+}
+
+.input input, .input select {
+    width: 270px;
+    background-color: transparent;
+}
+
+:focus {
+    outline: 0;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input-content {
+    margin-top: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.radio-tile-group {
+    margin-top: 60px;
+    gap: 21px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+}
+
+.input-container {
+    position: relative;
+}
+
+.input-container input {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    cursor: pointer;
+    z-index: 2;
+    opacity: 0;
+}
+
+input, select {
+    padding: 19px 13px;
+    border: none;
+    border-radius: 7px;
+    font-size: 24px;
+    color: #C9C9C9;
+    font-weight: 500;
+    overflow: hidden;
+    box-shadow: 0 0 12px #cccccc;
+}
+
+p {
+    margin-top: 77px;
+    font-size: 50px;
+    font-weight: 500;
+    color: #484848;
+}
+
+.icon {
+    font-size: 40px
+}
+
+.btn {
+    margin-top: 27px;
+    cursor: pointer;
+    width: 100%;
+    height: 101px;
+    font-size: 40px;
+    color: #fff;
+    background: linear-gradient(45deg,  #50f4ff 0%,#5ab7fa 100%);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 0 12px #5AB7FA;
+}
+
+.btn:hover {
+    background: linear-gradient(45deg,  #50f4ff 0%,#5ab7fa 80%);
+}
+
+.select label, .input-content label {
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.input-container label {
+    color: var(--primary-color);
+    font-size: 24px;
+    padding: 13px 80px;
+    flex-wrap: nowrap;
+    border-radius: 9px;
+    color: #484848;
+    box-shadow: 0 0 12px #cccccc;
+}
+
+.input-container:nth-of-type(2) label {
+    padding: 13px 32px;
+}
+
+input:checked + .radio-tile {
+    background-color: var(--primary-color);
+    box-shadow: 0 0 12px var(--primary-color);
+}
+
+input:hover + .radio-tile {
+    box-shadow: 0 0 12px var(--primary-color);
+} 
+
+input:checked + .radio-tile label {
+    color: white;
+    background: url('../fontimg/bg-green.png');
+    border-radius: 9px;
+}
