@@ -15,10 +15,18 @@ public class DateHandler
     private int GetFullMonthAmount()
     {
         int monthsAmount = (_today.Year - CourseStartDate.Year) * 12 + _today.Month - CourseStartDate.Month;
+        if (_today.Day < CourseStartDate.Day)
+        {
+            monthsAmount--;
+        }
+        if (monthsAmount < 0)
+        {
+            monthsAmount = 0;
+        }
         return monthsAmount;
     }
 
-    public int GetAmountOfClasses(int classesPerMonth ,bool isFullCourse=false)
+    public int GetAmountOfClasses(int classesPerMonth, bool isFullCourse=false)
     {
         int amountOfClasses = 0;
 
