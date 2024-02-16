@@ -76,7 +76,10 @@ public class CourseHandler
                 _ => 14
             };
         }
-        classesPerMonthAmount = CourseType == CourseType.Lit ? 5 : 9;
+        else
+        {
+            classesPerMonthAmount = CourseType == CourseType.Lit ? 5 : 9;
+        }
         return classesPerMonthAmount;
     }
 }
