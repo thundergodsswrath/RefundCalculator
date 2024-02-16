@@ -3,19 +3,20 @@ namespace RefundCalculator.Logic;
 public class DateHandler
 {
     public DateOnly CourseStartDate { get; private set; }
-    private readonly DateOnly _today = DateOnly.FromDateTime(DateTime.Today);
+    private readonly DateOnly _today;
     public List<DayOfWeek> ClassesDays { get; private set; }
 
     public DateHandler(ref DateOnly courseStartDate, List<DayOfWeek> classesDays)
     {
         CourseStartDate = courseStartDate;
         ClassesDays = classesDays;
+        _today =  DateOnly.FromDateTime(DateTime.Today);
     }
 
     private int GetFullMonthAmount()
     {
         int monthsAmount = (_today.Year - CourseStartDate.Year) * 12 + _today.Month - CourseStartDate.Month;
-        if (_today.Day < CourseStartDate.Day)
+        if (_today.Day <= CourseStartDate.Day)
         {
             monthsAmount--;
         }
