@@ -6,13 +6,15 @@ namespace RefundCalculator.Logic;
 public class CourseHandler
 {
     public CourseType CourseType { get; private set; }
+    public bool IsIntensive { get; private set; }
 
-    public CourseHandler(ref CourseType courseType)
+    public CourseHandler(ref CourseType courseType, bool isIntensive = false)
     {
         CourseType = courseType;
+        IsIntensive = isIntensive;
     }
 
-    public List<DayOfWeek> GetClassesDays(bool isIntensive = false)
+    public List<DayOfWeek> GetClassesDays()
     {
         List<DayOfWeek> classesDays = new List<DayOfWeek>();
         switch (CourseType)
@@ -20,28 +22,28 @@ public class CourseHandler
             case CourseType.Hist:
             case CourseType.Bio:
                 classesDays.AddRange([DayOfWeek.Monday, DayOfWeek.Thursday]);
-                if (isIntensive)
+                if (IsIntensive)
                 {
                     classesDays.Add(DayOfWeek.Saturday);
                 }
                 break;
             case CourseType.Math:
                 classesDays.AddRange([DayOfWeek.Tuesday, DayOfWeek.Friday]);
-                if (isIntensive)
+                if (IsIntensive)
                 {
                     classesDays.Add(DayOfWeek.Sunday);
                 }
                 break;
             case CourseType.Eng:
                 classesDays.AddRange([DayOfWeek.Wednesday, DayOfWeek.Sunday]);
-                if (isIntensive)
+                if (IsIntensive)
                 {
                     classesDays.Add(DayOfWeek.Saturday);
                 }
                 break;
             case CourseType.Ukr:
                 classesDays.AddRange([DayOfWeek.Wednesday, DayOfWeek.Friday]);
-                if (isIntensive)
+                if (IsIntensive)
                 {
                     classesDays.Add(DayOfWeek.Sunday);
                 }
@@ -51,7 +53,7 @@ public class CourseHandler
                 break;
             case CourseType.Geo:
                 classesDays.AddRange([DayOfWeek.Tuesday, DayOfWeek.Wednesday]);
-                if (isIntensive)
+                if (IsIntensive)
                 {
                     classesDays.Add(DayOfWeek.Saturday);
                 }
@@ -59,5 +61,11 @@ public class CourseHandler
         }
 
         return classesDays;
+    }
+
+    public int GetClassesPerMonthAmount()
+    {
+        int classesPerMonthAmount = CourseType == CourseType.Lit ? 5 : IsIntensive ? 14 : 9;
+        return classesPerMonthAmount;
     }
 }
