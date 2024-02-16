@@ -1,3 +1,5 @@
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using RefundCalculator.Enums;
@@ -11,6 +13,8 @@ public class IndexModel : PageModel
     public class InputModel
     {
         public CourseType CourseType { get; set; }
+        [Required(ErrorMessage = "Введіть ціну!")]
+        [Range(0, 19999, ErrorMessage = "Значення повинно бути від 0 до 19999!")]
         public int CoursePrice { get; set; }
         public DateOnly CourseStartDate { get; set; }
         public PriceType PriceType { get; set; }
