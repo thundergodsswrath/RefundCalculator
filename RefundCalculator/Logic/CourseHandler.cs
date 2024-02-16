@@ -65,7 +65,18 @@ public class CourseHandler
 
     public int GetClassesPerMonthAmount()
     {
-        int classesPerMonthAmount = CourseType == CourseType.Lit ? 5 : IsIntensive ? 14 : 9;
+        int classesPerMonthAmount;
+        if (IsIntensive)
+        {
+            classesPerMonthAmount = CourseType switch
+            {
+                CourseType.Lit => 5,
+                CourseType.Geo => 16,
+                CourseType.Math or CourseType.Ukr => 15,
+                _ => 14
+            };
+        }
+        classesPerMonthAmount = CourseType == CourseType.Lit ? 5 : 9;
         return classesPerMonthAmount;
     }
 }
