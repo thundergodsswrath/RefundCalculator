@@ -30,106 +30,111 @@ public class PriceHandler
     {
         int classesPerMonthAmount = CourseHandler.GetClassesPerMonthAmount();
         float pricePerClass;
-        
+
 
         if (IsFullCourse())
         {
             float priceForMonth = 0;
             switch (CourseType)
-        {
-            case CourseType.Lit:
-                switch (PriceState)
-                {
-                    case PriceState.Old:
-                        switch (PriceType)
-                        {
-                            case PriceType.Lowest:
-                                priceForMonth = 290f;
-                                break;
-                            case PriceType.Mid:
-                                priceForMonth = 340f;
-                                break;
-                            case PriceType.Highest:
-                                priceForMonth = 390f;
-                                break;
-                        }
+            {
+                case CourseType.Lit:
+                    switch (PriceState)
+                    {
+                        case PriceState.Old:
+                            switch (PriceType)
+                            {
+                                case PriceType.Lowest:
+                                    priceForMonth = 290f;
+                                    break;
+                                case PriceType.Mid:
+                                    priceForMonth = 340f;
+                                    break;
+                                case PriceType.Highest:
+                                    priceForMonth = 390f;
+                                    break;
+                            }
 
-                        break;
-                    case PriceState.FirstIncrease:
-                    case PriceState.IntensivePrice:
-                        switch (PriceType)
-                        {
-                            case PriceType.Lowest:
-                                priceForMonth = 290f;
-                                break;
-                            case PriceType.Mid:
-                                priceForMonth = 390f;
-                                break;
-                            case PriceType.Highest:
-                                priceForMonth = 490f;
-                                break;
-                        }
-                        break;
-                }
-                break;
-            default:
-                switch (PriceState)
-                {
-                    case PriceState.Old:
-                        switch (PriceType)
-                        {
-                            case PriceType.Lowest:
-                                priceForMonth = 690f;
-                                break;
-                            case PriceType.Mid:
-                                priceForMonth = 740f;
-                                break;
-                            case PriceType.Highest:
-                                priceForMonth = 790f;
-                                break;
-                        }
+                            break;
+                        case PriceState.FirstIncrease:
+                        case PriceState.IntensivePrice:
+                            switch (PriceType)
+                            {
+                                case PriceType.Lowest:
+                                    priceForMonth = 290f;
+                                    break;
+                                case PriceType.Mid:
+                                    priceForMonth = 390f;
+                                    break;
+                                case PriceType.Highest:
+                                    priceForMonth = 490f;
+                                    break;
+                            }
 
-                        break;
-                    case PriceState.FirstIncrease:
-                        switch (PriceType)
-                        {
-                            case PriceType.Lowest:
-                                priceForMonth = 690f;
-                                break;
-                            case PriceType.Mid:
-                                priceForMonth = 790f;
-                                break;
-                            case PriceType.Highest:
-                                priceForMonth = 890f;
-                                break;
-                        }
+                            break;
+                    }
 
-                        break;
+                    break;
+                default:
+                    switch (PriceState)
+                    {
+                        case PriceState.Old:
+                            switch (PriceType)
+                            {
+                                case PriceType.Lowest:
+                                    priceForMonth = 690f;
+                                    break;
+                                case PriceType.Mid:
+                                    priceForMonth = 740f;
+                                    break;
+                                case PriceType.Highest:
+                                    priceForMonth = 790f;
+                                    break;
+                            }
 
-                    case PriceState.IntensivePrice:
-                        switch (PriceType)
-                        {
-                            case PriceType.Lowest:
-                                priceForMonth = 790f;
-                                break;
-                            case PriceType.Mid:
-                                priceForMonth = 890f;
-                                break;
-                            case PriceType.Highest:
-                                priceForMonth = 990f;
-                                break;
-                        }
+                            break;
+                        case PriceState.FirstIncrease:
+                            switch (PriceType)
+                            {
+                                case PriceType.Lowest:
+                                    priceForMonth = 690f;
+                                    break;
+                                case PriceType.Mid:
+                                    priceForMonth = 790f;
+                                    break;
+                                case PriceType.Highest:
+                                    priceForMonth = 890f;
+                                    break;
+                            }
 
-                        break;
-                }
-                break;
-        }
+                            break;
+
+                        case PriceState.IntensivePrice:
+                            switch (PriceType)
+                            {
+                                case PriceType.Lowest:
+                                    priceForMonth = 790f;
+                                    break;
+                                case PriceType.Mid:
+                                    priceForMonth = 890f;
+                                    break;
+                                case PriceType.Highest:
+                                    priceForMonth = 990f;
+                                    break;
+                            }
+
+                            break;
+                    }
+
+                    break;
+            }
+
             pricePerClass = priceForMonth / classesPerMonthAmount;
         }
         else
         {
             pricePerClass = (float)CoursePrice / classesPerMonthAmount;
         }
+
         return pricePerClass;
     }
 
