@@ -213,3 +213,8 @@ input:checked + .radio-tile label {
     background: url('../fontimg/bg-green.png');
     border-radius: 9px;
 }
+
+input:disabled + .radio-tile label{
+    color: #CACACA;
+    background-color: #F3F3F3;
+}
