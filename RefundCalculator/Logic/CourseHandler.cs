@@ -52,7 +52,7 @@ public class CourseHandler
                 classesDays.Add(DayOfWeek.Saturday);
                 break;
             case CourseType.Geo:
-                classesDays.AddRange([DayOfWeek.Tuesday, DayOfWeek.Wednesday]);
+                classesDays.AddRange([DayOfWeek.Tuesday, DayOfWeek.Sunday]);
                 if (IsIntensive)
                 {
                     classesDays.Add(DayOfWeek.Saturday);
