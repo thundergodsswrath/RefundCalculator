@@ -41,7 +41,7 @@
             <div class="input-content">
                 <div class="input">
                     <label class="orange" for="price-course">Ціна за курс</label>
-                    <input asp-for="Input.CoursePrice" type="number" id="price-course" oninput="isFullCourse()">
+                    <input asp-for="Input.CoursePrice" type="number" id="price-course" oninput="isFullCourse()" placeholder="890">
                     <span asp-validation-for="Input.CoursePrice" class="text-danger"></span>
                 </div>
                 <div class="input">
