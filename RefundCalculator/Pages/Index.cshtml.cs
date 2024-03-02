@@ -50,12 +50,6 @@ public class IndexModel : PageModel
 
         var priceHandler = new PriceHandler(coursePrice,priceType, priceState, courseStartDate, courseType);
         RefundPrice = Convert.ToInt32(priceHandler.CalculateRefund());
-        
-        _logger.LogInformation($"Радиобатон: {priceState}");
-        _logger.LogInformation($"Цены курсу: {coursePrice}");
-        _logger.LogInformation($"Предмет: {courseType}");
-        _logger.LogInformation($"Дата начала курса: {courseStartDate}");
-        _logger.LogInformation($"Тип цены: {priceType}");
         return Page();
     }
 }
