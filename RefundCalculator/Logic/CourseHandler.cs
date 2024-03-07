@@ -6,9 +6,10 @@ namespace RefundCalculator.Logic;
 public class CourseHandler
 {
     public CourseType CourseType { get; private set; }
-    public bool IsIntensive { get; private set; }
 
-    public CourseHandler(ref CourseType courseType, bool isIntensive = false)
+    public bool IsIntensive { get; private set; }
+    
+    public CourseHandler(ref CourseType courseType, bool isIntensive)
     {
         CourseType = courseType;
         IsIntensive = isIntensive;
@@ -63,10 +64,10 @@ public class CourseHandler
         return classesDays;
     }
 
-    public int GetClassesPerMonthAmount()
+    public int GetClassesPerMonthAmount(bool isIntensive)
     {
         int classesPerMonthAmount;
-        if (IsIntensive)
+        if (isIntensive)
         {
             classesPerMonthAmount = CourseType switch
             {
