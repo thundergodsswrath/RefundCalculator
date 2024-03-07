@@ -23,15 +23,14 @@ public class PriceHandler
         PriceType = priceType;
         CourseType = courseType;
         CourseHandler = new CourseHandler(ref courseType, isIntensive: PriceState == PriceState.IntensivePrice);
-        DateHandler = new DateHandler(ref courseStartDate, classesDays: CourseHandler.GetClassesDays());
+        DateHandler = new DateHandler(ref courseStartDate, courseHandler: CourseHandler);
     }
 
     private float GetPricePerClass()
     {
-        int classesPerMonthAmount = CourseHandler.GetClassesPerMonthAmount();
+        int classesPerMonthAmount = CourseHandler.GetClassesPerMonthAmount(isIntensive: PriceState == PriceState.IntensivePrice);
         float pricePerClass;
-
-
+        
         if (IsFullCourse())
         {
             float priceForMonth = 0;
@@ -69,7 +68,6 @@ public class PriceHandler
                                     priceForMonth = 490f;
                                     break;
                             }
-
                             break;
                     }
 
@@ -105,7 +103,6 @@ public class PriceHandler
                                     priceForMonth = 890f;
                                     break;
                             }
-
                             break;
 
                         case PriceState.IntensivePrice:
@@ -121,10 +118,8 @@ public class PriceHandler
                                     priceForMonth = 990f;
                                     break;
                             }
-
                             break;
                     }
-
                     break;
             }
 
@@ -148,7 +143,7 @@ public class PriceHandler
     public float CalculateRefund()
     {
         float pricePerClass = GetPricePerClass();
-        int amountOfClasses = DateHandler.GetAmountOfClasses(CourseHandler.GetClassesPerMonthAmount(), IsFullCourse());
+        int amountOfClasses = DateHandler.GetAmountOfClasses(IsFullCourse());
         float refund = CoursePrice - pricePerClass * amountOfClasses;
         return refund;
     }
