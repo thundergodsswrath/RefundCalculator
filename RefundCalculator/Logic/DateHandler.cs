@@ -25,7 +25,7 @@ public class DateHandler
 
         foreach (var day in ClassesDays)
         {
-            if (_courseHandler.IsIntensive && startDate < _intensiveStartDate)
+            if (_courseHandler.IsIntensive && startDate < _intensiveStartDate && _courseHandler.CourseType != CourseType.Lit)
             {
                 startDate = day == ClassesDays[2] ? _intensiveStartDate : startDate;
             }
